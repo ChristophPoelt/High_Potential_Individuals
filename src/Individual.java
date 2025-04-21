@@ -77,7 +77,7 @@ public class Individual {
             case HIMMELBLAU:
                 mutateTerm = random.nextGaussian() * 0.12;
                 break;
-            case H1:
+            case H1, SCHAFFER:
                 mutateTerm = random.nextGaussian() * 2;
                 break;
             default:
@@ -116,7 +116,6 @@ public class Individual {
         mutated = new Individual(newX1, newX2, ancestry.length(), problemInstance);
         mutated.ancestry.or(this.ancestry);
 
-        // Debugging output
         System.out.println("Mutation:");
         System.out.println("Parent Ancestry: " + this.ancestry);
         System.out.println("Mutated Ancestry: " + mutated.ancestry);
@@ -142,7 +141,6 @@ public class Individual {
         child2.ancestry.or(this.ancestry);
         child2.ancestry.or(other.ancestry);
 
-        // Debugging output
         System.out.println("Recombination:");
 
         if (random.nextBoolean()) {
